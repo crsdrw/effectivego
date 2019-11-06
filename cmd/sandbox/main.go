@@ -16,8 +16,8 @@ type mystruct struct {
 func main() {
 	//	operatorTest()
 	//	setterGetterTest()
-	//err := readFileTest()
-	err := readFileByteByByteTest()
+	err := readFileTest()
+	//err := readFileByteByByteTest()
 	if err != nil {
 		log.Printf("Failed readFileTest: %v", err)
 	}
@@ -66,9 +66,9 @@ func readFileTest() error {
 		return err
 	}
 	buf := make([]byte, 100)
-	n, err := f.Read(buf[0:30])
+	n, err := f.Read(buf[70:100])
 	log.Printf("read: %v bytes", n)
-	log.Printf("bytes: %v", buf[0:n])
+	log.Printf("bytes: %v", buf[0:100])
 	if err == io.EOF {
 		log.Printf("found EOF")
 		return nil
